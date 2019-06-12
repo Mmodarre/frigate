@@ -103,12 +103,16 @@ def get_frame_shape(rtsp_url):
     video.release()
     return frame_shape
 
-def get_rtsp_url(rtsp_config):
+'''def get_rtsp_url(rtsp_config):
     if (rtsp_config['password'].startswith('$')):
         rtsp_config['password'] = os.getenv(rtsp_config['password'][1:])
     return 'rtsp://{}:{}@{}:{}{}'.format(rtsp_config['user'], 
         rtsp_config['password'], rtsp_config['host'], rtsp_config['port'],
-        rtsp_config['path'])
+        rtsp_config['path'])'''
+
+def get_rtsp_url(rtsp_config):
+    return '{}://{}:{}/{}'.format(rtsp_config['protocol'],
+    rtsp_config['host'],rtsp_config['port'],rtsp_config['path'])
 
 class CameraWatchdog(threading.Thread):
     def __init__(self, camera):

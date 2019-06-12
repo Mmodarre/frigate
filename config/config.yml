@@ -9,12 +9,11 @@ mqtt:
 cameras:
   back:
     rtsp:
-      user: viewer
-      host: 10.0.10.10
-      port: 554
+      protocol: rtsps
+      host: 54.201.101.106
+      port: 1443
+      path: 6E57B41D2097DC95C46367921B2CEFB5.sdp 
       # values that begin with a "$" will be replaced with environment variable
-      password: $RTSP_PASSWORD
-      path: /cam/realmonitor?channel=1&subtype=2
     mask: back-mask.bmp
     regions:
       - size: 350
