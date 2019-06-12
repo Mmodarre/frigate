@@ -7,10 +7,10 @@ import numpy as np
 from openvino.inference_engine import IENetwork, IEPlugin
 from . util import tonumpyarray
 
-PATH_TO_MODEL_XML = './model/model.xml'
-PATH_TO_MODEL_BIN = './model/model.bin'
-PATH_TO_MODEL_MAPPING = './model/model.mapping'
-PATH_TO_MODEL_LABELS = './model/model.labels'
+PATH_TO_MODEL_XML = '/frigate/frigate/model/model.xml'
+PATH_TO_MODEL_BIN = '/frigate/frigate/model/model.bin'
+PATH_TO_MODEL_MAPPING = '/frigate/frigate/model/model.mapping'
+PATH_TO_MODEL_LABELS = '/frigate/frigate/model/model.labels'
 # Path to frozen detection graph. This is the actual model that is used for the object detection.
 #PATH_TO_CKPT = '/frozen_inference_graph.pb' 
 # List of the strings that is used to add correct label for each box.
@@ -44,11 +44,11 @@ class PreppedQueueProcessor(threading.Thread):
 
         self.plugin = IEPlugin(device='MYRIAD', plugin_dirs=None)
         self.net = IENetwork(model=model_xml, weights=model_bin)
-        assert len(net.inputs.keys()) == 1, "Demo supports only single input topologies"
-        assert len(net.outputs) == 1, "Demo supports only single output topologies"
-        self.input_blob = next(iter(net.inputs))
-        self.out_blob = next(iter(net.outputs))
-        self.exec_net = plugin.load(network=self.net, num_requests=2)
+        assert len(self.net.inputs.keys()) == 1, "Demo supports only single input topologies"
+        assert len(self.net.outputs) == 1, "Demo supports only single output topologies"
+        self.input_blob = next(iter(self.net.inputs))
+        self.out_blob = next(iter(self.net.outputs))
+        self.exec_net = self.plugin.load(network=self.net, num_requests=2)
         #n, c, h, w = net.inputs[self.input_blob].shape
         del net
         with open(labels, 'r') as f:
