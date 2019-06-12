@@ -1,10 +1,10 @@
 web_port: 5000
 
 mqtt:
-  host: mqtt.server.com
+  host: 192.168.50.228
   topic_prefix: frigate
-#  user: username # Optional -- Uncomment for use
-#  password: password # Optional -- Uncomment for use
+  user: ha # Optional -- Uncomment for use
+  password: luckposht # Optional -- Uncomment for use
 
 cameras:
   back:

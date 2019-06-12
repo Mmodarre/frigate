@@ -9,7 +9,7 @@ import paho.mqtt.client as mqtt
 from frigate.video import Camera
 from frigate.object_detection import PreppedQueueProcessor
 
-with open('/config/config.yml') as f:
+with open('./config/config.yml') as f:
     CONFIG = yaml.safe_load(f)
 
 MQTT_HOST = CONFIG['mqtt']['host']
