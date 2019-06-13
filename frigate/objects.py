@@ -81,6 +81,11 @@ class BestPersonFrame(threading.Thread):
             if not self.best_person is None and self.best_person['frame_time'] in recent_frames:
                 best_frame = recent_frames[self.best_person['frame_time']]
                 best_frame = cv2.cvtColor(best_frame, cv2.COLOR_BGR2RGB)
+                color = (255,255,255)
+                cv2.rectangle(best_frame, (self.best_person['xmin'], self.best_person['ymin']), (self.best_person'xmax'], self.best_person['ymax']), color, 2)
+                cv2.putText(frame, self.best_person['name'] + ' ' + str(round(self.best_person['score'] * 100, 1)) + ' %', (self.best_person['xmin'], self.best_person['ymin'] - 7),
+                  cv2.FONT_HERSHEY_COMPLEX, 0.6, color, 1)
+
                 # draw the bounding box on the frame
                 '''vis_util.draw_bounding_box_on_image_array(best_frame,
                     self.best_person['ymin'],

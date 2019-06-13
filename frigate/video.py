@@ -287,6 +287,10 @@ class Camera:
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         # draw the bounding boxes on the screen
         for obj in detected_objects:
+               color = (255,255,255)
+               cv2.rectangle(frame, (obj['xmin'], obj['ymin']), (obj['xmax'], obj['ymax']), color, 2)
+               cv2.putText(frame, obj['name'] + ' ' + str(round(obj['score'] * 100, 1)) + ' %', (obj['xmin'], obj['ymin'] - 7)
+                 ,cv2.FONT_HERSHEY_COMPLEX, 0.6, color, 1)
             '''vis_util.draw_bounding_box_on_image_array(frame,
                 obj['ymin'],
                 obj['xmin'],

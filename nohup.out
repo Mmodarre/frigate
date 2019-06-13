@@ -1,0 +1,45 @@
+On connect called
+Creating a new capture process...
+Starting a new capture process...
+Capture process for back: 133
+Creating a new capture process...
+Starting a new capture process...
+Capture process for front: 138
+ * Serving Flask app "detect_objects" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+192.168.50.198 - - [13/Jun/2019 02:46:39] "GET /front HTTP/1.1" 200 -
+Opening the RTSP Url...
+Opening the RTSP Url...
+192.168.50.198 - - [13/Jun/2019 02:46:44] "GET /back HTTP/1.1" 200 -
+[h264 @ 0x2aae100] error while decoding MB 42 66, bytestream -7
+192.168.50.198 - - [13/Jun/2019 02:51:03] "GET /front HTTP/1.1" 200 -
+[h264 @ 0x2a5a7c0] error while decoding MB 59 51, bytestream -5
+192.168.50.198 - - [13/Jun/2019 02:57:44] "GET /front/best_person.jpg HTTP/1.1" 200 -
+/usr/local/lib/python3.5/dist-packages/werkzeug/filesystem.py:60: BrokenFilesystemWarning: Detected a misconfigured UNIX filesystem: Will use UTF-8 as filesystem encoding instead of 'ascii'
+  BrokenFilesystemWarning,
+192.168.50.198 - - [13/Jun/2019 02:57:47] "GET /favicon.ico HTTP/1.1" 500 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/werkzeug/serving.py", line 303, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python3.5/dist-packages/werkzeug/serving.py", line 293, in execute
+    for data in application_iter:
+  File "/usr/local/lib/python3.5/dist-packages/werkzeug/wsgi.py", line 507, in __next__
+    return self._next()
+  File "/usr/local/lib/python3.5/dist-packages/werkzeug/wrappers/base_response.py", line 45, in _iter_encoded
+    for item in iterable:
+  File "/frigate/detect_objects.py", line 88, in imagestream
+    frame = cameras[camera_name].get_current_frame_with_objects()
+KeyError: 'favicon.ico'
+192.168.50.198 - - [13/Jun/2019 02:57:49] "GET /front HTTP/1.1" 200 -
+Traceback (most recent call last):
+  File "detect_objects.py", line 9, in <module>
+    from frigate.video import Camera
+  File "/frigate/frigate/video.py", line 292
+    cv2.putText(frame, obj['name'] + ' ' + str(round(obj['score'] * 100, 1)) + ' %', (obj['xmin', obj['ymin'] - 7),
+                                                                                                                 ^
+SyntaxError: invalid syntax
