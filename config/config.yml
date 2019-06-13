@@ -10,11 +10,11 @@ cameras:
   back:
     rtsp:
       protocol: rtsps
-      host: 54.201.101.106
+      host: 18.237.1.75
       port: 1443
-      path: 6E57B41D2097DC95C46367921B2CEFB5.sdp 
+      path: 6F940C592A6B130209FE2BF59D547208.sdp 
       # values that begin with a "$" will be replaced with environment variable
-    mask: back-mask.bmp
+    ##mask: back-mask.bmp
     regions:
       - size: 350
         x_offset: 0
@@ -31,3 +31,19 @@ cameras:
         y_offset: 250
         min_person_area: 2000
         threshold: 0.5
+  front:
+    rtsp:
+      protocol: rtsps
+      host: 54.201.101.106
+      port: 1443
+      path: 6E57B41D2097DC95C46367921B2CEFB5.sdp
+      # values that begin with a "$" will be replaced with environment variable
+    ##mask: back-mask.bmp
+    regions:
+      - size: 1400 
+        x_offset: 0
+        y_offset: 100
+        min_person_area: 5000
+        threshold: 0.5
+
+  
