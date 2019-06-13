@@ -45,7 +45,7 @@ def main():
     client.loop_start()
     
     # Queue for prepped frames, max size set to (number of cameras * 5)
-    max_queue_size = len(CONFIG['cameras'].items())*10
+    max_queue_size = len(CONFIG['cameras'].items())*20
     prepped_frame_queue = queue.Queue(max_queue_size)
 
     cameras = {}
