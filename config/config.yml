@@ -40,10 +40,10 @@ cameras:
       # values that begin with a "$" will be replaced with environment variable
     ##mask: back-mask.bmp
     regions:
-      - size: 700 
-        x_offset: 500
-        y_offset: 300
-        min_person_area: 5000
-        threshold: 0.2
+      - size: 1000 
+        x_offset: 300
+        y_offset: 00
+        min_person_area: 500
+        threshold: 0.4
 
   
