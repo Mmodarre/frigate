@@ -10,7 +10,7 @@ cameras:
   back:
     rtsp:
       protocol: rtsps
-      host: 18.237.1.75
+      host: 54.187.67.99
       port: 1443
       path: 6F940C592A6B130209FE2BF59D547208.sdp 
       # values that begin with a "$" will be replaced with environment variable
