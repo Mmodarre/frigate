@@ -7,10 +7,10 @@ import numpy as np
 from openvino.inference_engine import IENetwork, IEPlugin
 from . util import tonumpyarray
 
-PATH_TO_MODEL_XML = '/frigate/frigate/model/model.xml'
-PATH_TO_MODEL_BIN = '/frigate/frigate/model/model.bin'
-PATH_TO_MODEL_MAPPING = '/frigate/frigate/model/model.mapping'
-PATH_TO_MODEL_LABELS = '/frigate/frigate/model/model.labels'
+PATH_TO_MODEL_XML = 'frigate/model/model.xml'
+PATH_TO_MODEL_BIN = 'frigate/model/model.bin'
+PATH_TO_MODEL_MAPPING = 'frigate/model/model.mapping'
+PATH_TO_MODEL_LABELS = 'frigate/model/model.labels'
 # Path to frozen detection graph. This is the actual model that is used for the object detection.
 #PATH_TO_CKPT = '/frozen_inference_graph.pb' 
 # List of the strings that is used to add correct label for each box.
